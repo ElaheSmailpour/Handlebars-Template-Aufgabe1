@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handlebars</title>
+</head>
+<body>
+    <h1>Meine Seite</h1>
+    <p> Meine Hobbies: </p>
+      
+        <div id="inhalt">
+            <h2>Alles von Handlebars</h2>
+        </div>
+
+        <!-- Hier kommt der Template für Handlebars hin: -->
+        <script id="text-template" type="text/x-handlebars-template">
+            <p>Hallo ich bin {{vorname}}!</p>
+        <!-- Daten aus einem Array -->
+        <!-- this ist das aktuelle Element in der Array @index ist der Indexwert des Elements -->
+            <ul>
+                {{#each hobbies}}
+                    <li> {{@index}} ist der Index von: {{this}}</li>
+                {{/each}}
+            </ul>
+            <!-- Array von objekten -->
+            <p>Lieblings ES</p>
+            {{#each lieblingsES}}
+                <p>{{title}} {{year}}</p>
+            {{/each}}
+
+            <!-- Objekt eigenschaft und wert -->
+            <!-- this gibt uns Wert von der Eigenschaft und @key den Eingenschaftsnamen  -->
+            <p>Die Adresse ist:</p>
+            {{#each adresse}}
+            <p> {{@key}}: {{this}}</p>
+            {{/each}}
+
+            <p>Nur eine Eigenschaft:</p>
+            {{adresse.nummer}}
+        </script>
+
+
+<!-- link zu Handelbars -->
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <!-- Zu unserem JS-Datei -->
+        <script src="index.js"></script>
+</body>
+</html>
